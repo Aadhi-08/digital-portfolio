@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aadhithya R - Portfolio</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header Styling */
+        header {
+            background: linear-gradient(to right, #2c3e50, #3498db);
+            color: #fff;
+            text-align: center;
+            padding: 3rem 0 2rem;
+            position: relative;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            padding: 0 20px;
+        }
+
+        .header-content h1 {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .header-content p {
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Profile Picture Styling */
+        .profile-container {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            background-color: #fff;
+            padding: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .profile-container:hover {
+            transform: scale(1.03);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .profile-picture {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #fff;
+        }
+
+        /* Navigation Styling */
+        nav {
+            background-color: #2c3e50;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+            padding: 1rem 0;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 500;
+            font-size: 1.1rem;
+            padding: 8px 15px;
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background-color: #3498db;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        nav ul li a:hover {
+            color: #3498db;
+        }
+
+        nav ul li a:hover::after, nav ul li a.active::after {
+            width: 70%;
+        }
+
+        /* Main Content Styling */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 20px;
+        }
+
+        /* Section Styling */
+        section {
+            margin-bottom: 3rem;
+        }
+
+        .section-content {
+            background-color: #fff;
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .section-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .section-content h2 {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .section-content h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 3px;
+            background: #3498db;
+        }
+
+        /* Skills Styling */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-item {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 6px;
+            text-align: center;
+            border-left: 3px solid transparent;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .skill-item:hover {
+            background-color: #f1f7fd;
+            border-left: 3px solid #3498db;
+            transform: translateX(5px);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Projects Styling */
+        .projects-list {
+            list-style-type: none;
+        }
+
+        .project-item {
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #eee;
+            transition: padding 0.3s ease;
+        }
+
+        .project-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .project-item:hover {
+            padding-left: 5px;
+        }
+
+        .project-title {
+            color: #2c3e50;
+            margin-bottom: 12px;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        .project-description {
+            margin-bottom: 15px;
+            color: #555;
+            line-height: 1.7;
+        }
+
+        .project-link {
+            display: inline-block;
+            color: #3498db;
+            text-decoration: none;
+            margin-right: 15px;
+            position: relative;
+            font-weight: 500;
+            padding: 6px 12px;
+            border-radius: 4px;
+            border: 1px solid #3498db;
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover {
+            background-color: #3498db;
+            color: #fff;
+        }
+
+        /* Resume Styling */
+        .resume-container {
+            text-align: center;
+        }
+
+        .download-button {
+            background-color: #3498db;
+            color: #fff;
+            padding: 0.8rem 2.5rem;
+            text-decoration: none;
+            border-radius: 4px;
+            display: inline-block;
+            margin-top: 15px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 8px rgba(52, 152, 219, 0.25);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .download-button:hover {
+            background-color: #2980b9;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(52, 152, 219, 0.35);
+        }
+
+        .download-button:active {
+            transform: translateY(1px);
+            box-shadow: 0 2px 6px rgba(52, 152, 219, 0.25);
+        }
+
+        /* Education Styling */
+        .education-item {
+            padding-left: 10px;
+            border-left: 3px solid #f0f0f0;
+            transition: border-left-color 0.3s ease;
+        }
+
+        .education-item:hover {
+            border-left-color: #3498db;
+        }
+
+        .education-item strong {
+            color: #2c3e50;
+            display: block;
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: #2c3e50;
+            color: #fff;
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .social-links {
+            margin: 1rem 0;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social-link {
+            color: #fff;
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .copyright {
+            margin-top: 1.5rem;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content h1 {
+                font-size: 2.2rem;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+            }
+
+            nav ul li {
+                margin: 5px 10px;
+            }
+
+            .section-content {
+                padding: 1.5rem;
+            }
+
+            .skills-container {
+                grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="profile-container">
+                <img src="image.jpg" alt="Aadhithya R Profile Picture" class="profile-picture">
+            </div>
+            <h1>Aadhithya R</h1>
+            <p>FrontEnd Developer</p>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#about" class="active">About</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#resume">Resume</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="about">
+            <div class="section-content">
+                <h2>About Me</h2>
+                <p>I am a Front-End Developer passionate about crafting responsive, user-friendly web applications with a focus on clean design, performance optimization, and seamless user experiences. 🚀.</p>
+            </div>
+        </section>
+
+        <section id="education">
+            <div class="section-content">
+                <h2>Education</h2>
+                <div class="education-item">
+                    <strong>B.Sc. Computer Science with Artificial Intelligence</strong>
+                    <p>University of Madras</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <div class="section-content">
+                <h2>Technical Skills</h2>
+                <div class="skills-container">
+                    <div class="skill-item">HTML</div>
+                    <div class="skill-item">C++</div>
+                    <div class="skill-item">Java</div>
+                    <div class="skill-item">Python</div>
+                    <div class="skill-item">Data Structures</div>
+                    <div class="skill-item">ML & AI</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <div class="section-content">
+                <h2>Professional Projects</h2>
+                <ul class="projects-list">
+                    <li class="project-item">
+                        <h3 class="project-title">Cloud Security (IBM)</h3>
+                        <p class="project-description">Built a secure cloud storage system ensuring encrypted data transfers and protection against cyber threats. Implemented industry-standard security protocols and compliance measures.</p>
+                        
+                    </li>
+                    <li class="project-item">
+                        <h3 class="project-title">IBM Chatbot</h3>
+                        <p class="project-description">Developed an intelligent chatbot using IBM Watson to provide customer support services. The solution reduced response time by 45% and improved customer satisfaction scores.</p>
+                                            </li>
+                    <li class="project-item">
+                        <h3 class="project-title">College Portal</h3>
+                        <p class="project-description">Created a comprehensive college portal for students and faculty to manage academic activities, including course registration, grade management, and administrative functions.</p>
+                        
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="resume">
+            <div class="section-content resume-container">
+                <h2>Professional Resume</h2>
+                <p>Download my detailed resume to learn more about my professional experience and qualifications.</p>
+                <a href="resume.pdf" target="_blank" class="download-button">Download CV</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="#" class="social-link" title="GitHub">GitHub</a>
+                <a href="#" class="social-link" title="LinkedIn">LinkedIn</a>
+                <a href="#" class="social-link" title="Twitter">Twitter</a>
+            </div>
+            <p class="copyright">&copy; 2025 Aadhithya R. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling to section when clicking on navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 60, // Offset for fixed navbar
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add active class to current section in navigation
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav ul li a');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (scrollY >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
